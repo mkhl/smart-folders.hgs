@@ -1,0 +1,14 @@
+//
+//  SavedSearches_Prefix.pch
+//  SavedSearches
+//
+//  Created by mkhl on 07.05.09.
+//  Copyright Martin Kuehl 2009. All rights reserved.
+//
+
+
+#ifdef __OBJC__
+  #import <Cocoa/Cocoa.h>
+  #import <Vermilion/Vermilion.h>
+  #import <GTM/GTMDefines.h>
+#endif
