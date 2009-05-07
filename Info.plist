@@ -22,9 +22,19 @@
 	<array>
 		<dict>
 			<key>HGSExtensionClass</key>
+			<string>CannedSearchesSource</string>
+			<key>HGSExtensionIdentifier</key>
+			<string>org.purl.net.mkhl.saved-searches.source.canned</string>
+			<key>HGSExtensionPoint</key>
+			<string>HGSSourcesExtensionPoint</string>
+			<key>HGSExtensionUserVisibleName</key>
+			<string>Canned Searches</string>
+		</dict>
+		<dict>
+			<key>HGSExtensionClass</key>
 			<string>SavedSearchesSource</string>
 			<key>HGSExtensionIdentifier</key>
-			<string>org.purl.net.mkhl.saved-searches.source</string>
+			<string>org.purl.net.mkhl.saved-searches.source.saved</string>
 			<key>HGSExtensionPoint</key>
 			<string>HGSSourcesExtensionPoint</string>
 			<key>HGSExtensionUserVisibleName</key>

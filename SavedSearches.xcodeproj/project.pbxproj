@@ -12,6 +12,7 @@
 		7F38DE690F688CC20051B7E3 /* GTM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F38DE680F688CC20051B7E3 /* GTM.framework */; };
 		7F80FC720F696C5B00228142 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F80FC710F696C5B00228142 /* Cocoa.framework */; };
 		8B0D217E0F796E1C00FD4A12 /* HGSBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D217D0F796E1C00FD4A12 /* HGSBundle.m */; };
+		D408899B0FB39D4B00B2D0DB /* CannedSearchesSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D408899A0FB39D4B00B2D0DB /* CannedSearchesSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		8BAA94490F7A6EBC00DF4F12 /* LoadableBundle.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = LoadableBundle.xcconfig; path = "externals/google-toolbox-for-mac/XcodeConfig/Target/LoadableBundle.xcconfig"; sourceTree = QSBSRCROOT; };
 		8D5B49B6048680CD000E48DA /* SavedSearches.hgs */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SavedSearches.hgs; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D408899A0FB39D4B00B2D0DB /* CannedSearchesSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CannedSearchesSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D408899A0FB39D4B00B2D0DB /* CannedSearchesSource.m */,
 				7F38DCE00F6864D90051B7E3 /* SavedSearchesSource.m */,
 			);
 			name = Classes;
@@ -163,6 +166,7 @@
 			files = (
 				7F38DCE40F6864D90051B7E3 /* SavedSearchesSource.m in Sources */,
 				8B0D217E0F796E1C00FD4A12 /* HGSBundle.m in Sources */,
+				D408899B0FB39D4B00B2D0DB /* CannedSearchesSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
