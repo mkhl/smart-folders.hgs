@@ -7,8 +7,6 @@
 
 #import <Vermilion/Vermilion.h>
 
-@class SavedSearchesSource;
-
 #pragma mark Static Data
 
 static NSString *const kSavedSearchesPathComponent = @"Saved Searches";
