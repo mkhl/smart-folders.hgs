@@ -1,5 +1,5 @@
 //
-//  SavedSearchesAbstractSource.m
+//  SmartFoldersAbstractSource.m
 //
 //  Copyright (c) 2009  Martin Kuehl <purl.org/net/mkhl>
 //  Licensed under the MIT License.
@@ -7,20 +7,20 @@
 
 #import <Vermilion/Vermilion.h>
 #import <Vermilion/HGSTokenizer.h>
-#import "SavedSearchesAbstractSource.h"
+#import "SmartFoldersAbstractSource.h"
 
 #pragma mark Static Data
 
-static NSString *const kSavedSearchesAttributeQueryKey
-  = @"SavedSearchesAttributeQuery";
+static NSString *const kSmartFoldersAttributeQueryKey
+  = @"SmartFoldersAttributeQuery";
 
 #pragma mark -
-@interface SavedSearchesAbstractSource ()
+@interface SmartFoldersAbstractSource ()
 @property (copy) NSString *resultType;
 @end
 
 #pragma mark -
-@implementation SavedSearchesAbstractSource
+@implementation SmartFoldersAbstractSource
 
 #pragma mark Accessors
 
@@ -32,7 +32,7 @@ static NSString *const kSavedSearchesAttributeQueryKey
                     rootPath:(NSString *)path
                   resultType:(NSString *)type
 {
-  // We need to set this first as we use it in a method called from the ctor.
+  // We need to set this _first_. We need it in a method called super's init.
   self.resultType = type;
   self = [super initWithConfiguration:configuration rootPath:path];
   if (self == nil)
@@ -66,7 +66,7 @@ static NSString *const kSavedSearchesAttributeQueryKey
 // Override -indexResult: to add our data to the HGSResult.
 // The added data consists of:
 // - a more specific result type than "file"
-// - an NSMetadataQuery instance executing the saved search
+// - an NSMetadataQuery instance executing the smart folder's search
 // Creates a new HGSResult instance and merges it with the given one, because
 // HGSResult's -setValue:forKey: currently contains a failing assertion and
 // cannot be called.
@@ -75,7 +75,7 @@ static NSString *const kSavedSearchesAttributeQueryKey
   NSMetadataQuery *query = [[NSMetadataQuery new] autorelease];
   NSDictionary *attrs
     = [NSDictionary dictionaryWithObject:query
-                                  forKey:kSavedSearchesAttributeQueryKey];
+                                  forKey:kSmartFoldersAttributeQueryKey];
   NSURL *url = [hgsResult url];
   HGSResult *result = [HGSResult resultWithURL:url
                                           name:[hgsResult displayName]
@@ -94,14 +94,14 @@ static NSString *const kSavedSearchesAttributeQueryKey
 
 #pragma mark HGSSearchSource
 
-// Override -performSearchOperation: to support descending into saved searches.
+// Override -performSearchOperation: to support descending into smart folders.
 - (void) performSearchOperation:(HGSSearchOperation*)operation
 {
   HGSQuery *query = [operation query];
   HGSResult *pivot = [query pivotObject];
   if (pivot) {
     NSMetadataQuery *mdQuery
-      = [pivot valueForKey:kSavedSearchesAttributeQueryKey];
+      = [pivot valueForKey:kSmartFoldersAttributeQueryKey];
     if (mdQuery) {
       NSMutableArray *results = [NSMutableArray array];
       [mdQuery disableUpdates];
@@ -123,7 +123,7 @@ static NSString *const kSavedSearchesAttributeQueryKey
 @end
 
 #pragma mark -
-@implementation SavedSearchesAbstractSource (ProtectedMethods)
+@implementation SmartFoldersAbstractSource (ProtectedMethods)
 
 #pragma mark Subclassing
 

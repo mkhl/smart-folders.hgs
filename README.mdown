@@ -1,24 +1,25 @@
-# Saved Searches Plugin for Google QSB
+# Smart Folders Plugin for Google QSB
 
-A [Google Quick Search Box][qsb] plugin to enable access to [Saved
-Searches][saved-search].
+A [Google Quick Search Box][qsb] plugin to enable access to [Smart
+Folders][smart-folders], also known as Saved Searches.
 
 ## Usage
 
 * Hit you QSB keyboard shortcut.
-* Type the name of (or an abbreviation for) any of the Saved Searches (or
-  *Smart Folders*) you have configured with Spotlight and the Finder.
-* Hit enter to open the Saved Search.
+* Type the name of (or an abbreviation for) any of the Smart Folders you
+  have configured with Spotlight and the Finder.
+* Hit enter to open the Smart Folder.
+* Alternatively, *tab* into the Smart Folder to examine its contents.
 
 
 ## Installation Instructions
 
 After extracting the plugin, you will find a bundle called
-`SavedSearches.hgs`. Copy this bundle to `~/Library/Application
+`SmartFolders.hgs`. Copy this bundle to `~/Library/Application
 Support/Google/Quick Search Box/PlugIns`, then restart QSB.
 
 If you built the plugin from source (described below), you will find the
-`SavedSearches.hgs` bundle in your `build` directory.
+`SmartFolders.hgs` bundle in your `build` directory.
 
 ## Build Instructions
 
@@ -52,4 +53,4 @@ If you are developing plugins, please join our mailing list:
 http://groups.google.com/group/qsb-mac-dev
 
 [qsb]: http://code.google.com/p/qsb-mac/
-[saved-search]: http://www.apple.com/macosx/features/300.html#spotlight
+[smart-folders]: http://docs.info.apple.com/article.html?path=Mac/10.5/en/8923.html

@@ -7,19 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F38DCE40F6864D90051B7E3 /* SavedSearchesSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F38DCE00F6864D90051B7E3 /* SavedSearchesSource.m */; };
 		7F38DD3B0F68694B0051B7E3 /* Vermilion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F38DD3A0F68694B0051B7E3 /* Vermilion.framework */; };
 		7F38DE690F688CC20051B7E3 /* GTM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F38DE680F688CC20051B7E3 /* GTM.framework */; };
 		7F80FC720F696C5B00228142 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F80FC710F696C5B00228142 /* Cocoa.framework */; };
 		8B0D217E0F796E1C00FD4A12 /* HGSBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D217D0F796E1C00FD4A12 /* HGSBundle.m */; };
-		D408899B0FB39D4B00B2D0DB /* CannedSearchesSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D408899A0FB39D4B00B2D0DB /* CannedSearchesSource.m */; };
-		D43F4F680FB5A97C0007C378 /* HGSDirectoryScannerSearchSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F4F670FB5A97C0007C378 /* HGSDirectoryScannerSearchSource.m */; };
-		D43F50E00FB5EAE80007C378 /* SavedSearchesAbstractSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F50DF0FB5EAE80007C378 /* SavedSearchesAbstractSource.m */; };
+		D43F517D0FB61A0A0007C378 /* SmartFoldersSystemSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F51770FB61A0A0007C378 /* SmartFoldersSystemSource.m */; };
+		D43F517E0FB61A0A0007C378 /* HGSDirectoryScannerSearchSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F51790FB61A0A0007C378 /* HGSDirectoryScannerSearchSource.m */; };
+		D43F517F0FB61A0A0007C378 /* SmartFoldersAbstractSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F517B0FB61A0A0007C378 /* SmartFoldersAbstractSource.m */; };
+		D43F51800FB61A0A0007C378 /* SmartFoldersUserSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F517C0FB61A0A0007C378 /* SmartFoldersUserSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7F38DCE00F6864D90051B7E3 /* SavedSearchesSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedSearchesSource.m; sourceTree = "<group>"; };
-		7F38DCE90F6865290051B7E3 /* SavedSearches_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedSearches_Prefix.pch; sourceTree = "<group>"; };
+		7F38DCE90F6865290051B7E3 /* SmartFolders_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartFolders_Prefix.pch; sourceTree = "<group>"; };
 		7F38DD3A0F68694B0051B7E3 /* Vermilion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Vermilion.framework; sourceTree = QSBBUILDROOT; };
 		7F38DE680F688CC20051B7E3 /* GTM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTM.framework; sourceTree = QSBBUILDROOT; };
 		7F80FC710F696C5B00228142 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -27,13 +26,14 @@
 		7F8450F50F6B1F7B000CD5C1 /* QSBRelease.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = QSBRelease.xcconfig; path = QSB/xcconfig/QSBRelease.xcconfig; sourceTree = QSBSRCROOT; };
 		8B0D217D0F796E1C00FD4A12 /* HGSBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HGSBundle.m; path = ../Vermilion/Vermilion/HGSBundle.m; sourceTree = QSBSRCROOT; };
 		8BAA94490F7A6EBC00DF4F12 /* LoadableBundle.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = LoadableBundle.xcconfig; path = "externals/google-toolbox-for-mac/XcodeConfig/Target/LoadableBundle.xcconfig"; sourceTree = QSBSRCROOT; };
-		8D5B49B6048680CD000E48DA /* SavedSearches.hgs */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SavedSearches.hgs; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5B49B6048680CD000E48DA /* SmartFolders.hgs */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartFolders.hgs; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D408899A0FB39D4B00B2D0DB /* CannedSearchesSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CannedSearchesSource.m; sourceTree = "<group>"; };
-		D43F4F660FB5A97C0007C378 /* HGSDirectoryScannerSearchSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGSDirectoryScannerSearchSource.h; sourceTree = "<group>"; };
-		D43F4F670FB5A97C0007C378 /* HGSDirectoryScannerSearchSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGSDirectoryScannerSearchSource.m; sourceTree = "<group>"; };
-		D43F50DE0FB5EAE80007C378 /* SavedSearchesAbstractSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedSearchesAbstractSource.h; sourceTree = "<group>"; };
-		D43F50DF0FB5EAE80007C378 /* SavedSearchesAbstractSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedSearchesAbstractSource.m; sourceTree = "<group>"; };
+		D43F51770FB61A0A0007C378 /* SmartFoldersSystemSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartFoldersSystemSource.m; sourceTree = "<group>"; };
+		D43F51780FB61A0A0007C378 /* HGSDirectoryScannerSearchSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGSDirectoryScannerSearchSource.h; sourceTree = "<group>"; };
+		D43F51790FB61A0A0007C378 /* HGSDirectoryScannerSearchSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGSDirectoryScannerSearchSource.m; sourceTree = "<group>"; };
+		D43F517A0FB61A0A0007C378 /* SmartFoldersAbstractSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartFoldersAbstractSource.h; sourceTree = "<group>"; };
+		D43F517B0FB61A0A0007C378 /* SmartFoldersAbstractSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartFoldersAbstractSource.m; sourceTree = "<group>"; };
+		D43F517C0FB61A0A0007C378 /* SmartFoldersUserSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartFoldersUserSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +50,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		089C166AFE841209C02AAC07 /* SavedSearches */ = {
+		089C166AFE841209C02AAC07 /* SmartFolders */ = {
 			isa = PBXGroup;
 			children = (
 				08FB77AFFE84173DC02AAC07 /* Classes */,
@@ -59,7 +59,7 @@
 				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
 				19C28FB8FE9D52D311CA2CBB /* Products */,
 			);
-			name = SavedSearches;
+			name = SmartFolders;
 			sourceTree = "<group>";
 		};
 		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
@@ -81,12 +81,12 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D43F50DE0FB5EAE80007C378 /* SavedSearchesAbstractSource.h */,
-				D43F50DF0FB5EAE80007C378 /* SavedSearchesAbstractSource.m */,
-				D43F4F660FB5A97C0007C378 /* HGSDirectoryScannerSearchSource.h */,
-				D43F4F670FB5A97C0007C378 /* HGSDirectoryScannerSearchSource.m */,
-				D408899A0FB39D4B00B2D0DB /* CannedSearchesSource.m */,
-				7F38DCE00F6864D90051B7E3 /* SavedSearchesSource.m */,
+				D43F51770FB61A0A0007C378 /* SmartFoldersSystemSource.m */,
+				D43F51780FB61A0A0007C378 /* HGSDirectoryScannerSearchSource.h */,
+				D43F51790FB61A0A0007C378 /* HGSDirectoryScannerSearchSource.m */,
+				D43F517A0FB61A0A0007C378 /* SmartFoldersAbstractSource.h */,
+				D43F517B0FB61A0A0007C378 /* SmartFoldersAbstractSource.m */,
+				D43F517C0FB61A0A0007C378 /* SmartFoldersUserSource.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -104,7 +104,7 @@
 		19C28FB8FE9D52D311CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D5B49B6048680CD000E48DA /* SavedSearches.hgs */,
+				8D5B49B6048680CD000E48DA /* SmartFolders.hgs */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,7 +116,7 @@
 				7F8450F40F6B1F7B000CD5C1 /* QSBDebug.xcconfig */,
 				7F8450F50F6B1F7B000CD5C1 /* QSBRelease.xcconfig */,
 				8BAA94490F7A6EBC00DF4F12 /* LoadableBundle.xcconfig */,
-				7F38DCE90F6865290051B7E3 /* SavedSearches_Prefix.pch */,
+				7F38DCE90F6865290051B7E3 /* SmartFolders_Prefix.pch */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -124,9 +124,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D5B49AC048680CD000E48DA /* SavedSearches */ = {
+		8D5B49AC048680CD000E48DA /* SmartFolders */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "SavedSearches" */;
+			buildConfigurationList = 1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "SmartFolders" */;
 			buildPhases = (
 				8D5B49AF048680CD000E48DA /* Resources */,
 				8D5B49B1048680CD000E48DA /* Sources */,
@@ -136,10 +136,10 @@
 			);
 			dependencies = (
 			);
-			name = SavedSearches;
+			name = SmartFolders;
 			productInstallPath = "$(HOME)/Library/Bundles";
-			productName = SavedSearches;
-			productReference = 8D5B49B6048680CD000E48DA /* SavedSearches.hgs */;
+			productName = SmartFolders;
+			productReference = 8D5B49B6048680CD000E48DA /* SmartFolders.hgs */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -147,14 +147,14 @@
 /* Begin PBXProject section */
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "SavedSearches" */;
+			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "SmartFolders" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
-			mainGroup = 089C166AFE841209C02AAC07 /* SavedSearches */;
+			mainGroup = 089C166AFE841209C02AAC07 /* SmartFolders */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D5B49AC048680CD000E48DA /* SavedSearches */,
+				8D5B49AC048680CD000E48DA /* SmartFolders */,
 			);
 		};
 /* End PBXProject section */
@@ -174,11 +174,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F38DCE40F6864D90051B7E3 /* SavedSearchesSource.m in Sources */,
 				8B0D217E0F796E1C00FD4A12 /* HGSBundle.m in Sources */,
-				D408899B0FB39D4B00B2D0DB /* CannedSearchesSource.m in Sources */,
-				D43F4F680FB5A97C0007C378 /* HGSDirectoryScannerSearchSource.m in Sources */,
-				D43F50E00FB5EAE80007C378 /* SavedSearchesAbstractSource.m in Sources */,
+				D43F517D0FB61A0A0007C378 /* SmartFoldersSystemSource.m in Sources */,
+				D43F517E0FB61A0A0007C378 /* HGSDirectoryScannerSearchSource.m in Sources */,
+				D43F517F0FB61A0A0007C378 /* SmartFoldersAbstractSource.m in Sources */,
+				D43F51800FB61A0A0007C378 /* SmartFoldersUserSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,9 +193,9 @@
 					"$(inherited)",
 					"$(QSBBUILDROOT)",
 				);
-				GCC_PREFIX_HEADER = SavedSearches_Prefix.pch;
+				GCC_PREFIX_HEADER = SmartFolders_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				PRODUCT_NAME = SavedSearches;
+				PRODUCT_NAME = SmartFolders;
 				WRAPPER_EXTENSION = hgs;
 			};
 			name = Debug;
@@ -208,9 +208,9 @@
 					"$(inherited)",
 					"$(QSBBUILDROOT)",
 				);
-				GCC_PREFIX_HEADER = SavedSearches_Prefix.pch;
+				GCC_PREFIX_HEADER = SmartFolders_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				PRODUCT_NAME = SavedSearches;
+				PRODUCT_NAME = SmartFolders;
 				WRAPPER_EXTENSION = hgs;
 			};
 			name = Release;
@@ -232,7 +232,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "SavedSearches" */ = {
+		1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "SmartFolders" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB913B08733D840010E9CD /* Debug */,
@@ -241,7 +241,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "SavedSearches" */ = {
+		1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "SmartFolders" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB913F08733D840010E9CD /* Debug */,

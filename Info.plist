@@ -9,7 +9,7 @@
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.purl.net.mkhl.saved-searches</string>
+	<string>org.purl.net.mkhl.smartfolders</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
@@ -22,13 +22,13 @@
 	<array>
 		<dict>
 			<key>HGSExtensionClass</key>
-			<string>CannedSearchesSource</string>
+			<string>SmartFoldersSystemSource</string>
 			<key>HGSExtensionIdentifier</key>
-			<string>org.purl.net.mkhl.saved-searches.source.canned</string>
+			<string>org.purl.net.mkhl.smartfolders.source.system</string>
 			<key>HGSExtensionPoint</key>
 			<string>HGSSourcesExtensionPoint</string>
 			<key>HGSExtensionUserVisibleName</key>
-			<string>Canned Searches</string>
+			<string>Smart Folders (System)</string>
 			<key>HGSSearchSourcePivotableTypes</key>
 			<array>
 				<string>file.search.cannedSearch</string>
@@ -36,13 +36,13 @@
 		</dict>
 		<dict>
 			<key>HGSExtensionClass</key>
-			<string>SavedSearchesSource</string>
+			<string>SmartFoldersUserSource</string>
 			<key>HGSExtensionIdentifier</key>
-			<string>org.purl.net.mkhl.saved-searches.source.saved</string>
+			<string>org.purl.net.mkhl.smartfolders.source.user</string>
 			<key>HGSExtensionPoint</key>
 			<string>HGSSourcesExtensionPoint</string>
 			<key>HGSExtensionUserVisibleName</key>
-			<string>Saved Searches</string>
+			<string>Smart Folders (User)</string>
 			<key>HGSSearchSourcePivotableTypes</key>
 			<array>
 				<string>file.search.savedSearch</string>

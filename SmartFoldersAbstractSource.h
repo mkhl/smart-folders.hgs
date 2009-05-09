@@ -1,5 +1,5 @@
 //
-//  SavedSearchesAbstractSource.h
+//  SmartFoldersAbstractSource.h
 //
 //  Copyright (c) 2009  Martin Kuehl <purl.org/net/mkhl>
 //  Licensed under the MIT License.
@@ -10,7 +10,7 @@
 
 #define kHGSTypeFileSearch HGS_SUBTYPE(kHGSTypeFile, kHGSTypeSearch)
 
-@interface SavedSearchesAbstractSource : HGSDirectoryScannerSearchSource {
+@interface SmartFoldersAbstractSource : HGSDirectoryScannerSearchSource {
  @private
   NSString *resultType_;
 }
@@ -20,6 +20,6 @@
                   resultType:(NSString *)type;
 @end
 
-@interface SavedSearchesAbstractSource (ProtectedMethods)
+@interface SmartFoldersAbstractSource (ProtectedMethods)
 - (void) startQuery:(NSMetadataQuery *)query forPath:(NSString *)path;
 @end
