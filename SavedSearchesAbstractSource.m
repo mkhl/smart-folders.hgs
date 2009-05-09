@@ -83,7 +83,13 @@ static NSString *const kSavedSearchesAttributeQueryKey
                                         source:self
                                     attributes:attrs];
   [super indexResult:[result mergeWith:hgsResult]];
-  [self startQuery:query forPath:[url path]];
+  @try {
+    [self startQuery:query forPath:[url path]];
+  }
+  @catch (NSException *e) {
+    HGSLogDebug(@"%@: failed to start NSMetadataQuery for HGSResult %@: %@",
+                self, result, e);
+  }
 }
 
 #pragma mark HGSSearchSource
