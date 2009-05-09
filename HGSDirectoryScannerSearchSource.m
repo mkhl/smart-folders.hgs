@@ -74,11 +74,12 @@
                withObject:nil
                afterDelay:10.0];
   }
-  self.kQueue = [[GTMFileSystemKQueue alloc] initWithPath:self.path
-                                                forEvents:kGTMFileSystemKQueueWriteEvent
-                                            acrossReplace:NO
-                                                   target:self
-                                                   action:@selector(directoryChanged:eventFlags:)];
+  self.kQueue = [[[GTMFileSystemKQueue alloc] initWithPath:self.path
+                                                 forEvents:kGTMFileSystemKQueueWriteEvent
+                                             acrossReplace:NO
+                                                    target:self
+                                                    action:@selector(directoryChanged:eventFlags:)]
+                 autorelease];
   return self;
 }
 
