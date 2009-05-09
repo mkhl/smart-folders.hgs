@@ -42,5 +42,6 @@
   GTMFileSystemKQueue *kQueue_;
 }
 
-- (id) initWithConfiguration:(NSDictionary *)configuration rootPath:(NSString *)rootPath;
+- (id) initWithConfiguration:(NSDictionary *)configuration
+                    rootPath:(NSString *)rootPath;
 @end
