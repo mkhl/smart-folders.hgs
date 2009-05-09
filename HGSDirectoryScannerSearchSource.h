@@ -34,6 +34,8 @@
 
 @class GTMFileSystemKQueue;
 
+#define kHGSTypeFileSearch HGS_SUBTYPE(kHGSTypeFile, kHGSTypeSearch)
+
 @interface HGSDirectoryScannerSearchSource : HGSMemorySearchSource {
  @private
   NSString *path_; 
