@@ -14,6 +14,7 @@
 		8B0D217E0F796E1C00FD4A12 /* HGSBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0D217D0F796E1C00FD4A12 /* HGSBundle.m */; };
 		D408899B0FB39D4B00B2D0DB /* CannedSearchesSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D408899A0FB39D4B00B2D0DB /* CannedSearchesSource.m */; };
 		D43F4F680FB5A97C0007C378 /* HGSDirectoryScannerSearchSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F4F670FB5A97C0007C378 /* HGSDirectoryScannerSearchSource.m */; };
+		D43F50E00FB5EAE80007C378 /* SavedSearchesAbstractSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D43F50DF0FB5EAE80007C378 /* SavedSearchesAbstractSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		D408899A0FB39D4B00B2D0DB /* CannedSearchesSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CannedSearchesSource.m; sourceTree = "<group>"; };
 		D43F4F660FB5A97C0007C378 /* HGSDirectoryScannerSearchSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGSDirectoryScannerSearchSource.h; sourceTree = "<group>"; };
 		D43F4F670FB5A97C0007C378 /* HGSDirectoryScannerSearchSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGSDirectoryScannerSearchSource.m; sourceTree = "<group>"; };
+		D43F50DE0FB5EAE80007C378 /* SavedSearchesAbstractSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedSearchesAbstractSource.h; sourceTree = "<group>"; };
+		D43F50DF0FB5EAE80007C378 /* SavedSearchesAbstractSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedSearchesAbstractSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,8 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D43F50DE0FB5EAE80007C378 /* SavedSearchesAbstractSource.h */,
+				D43F50DF0FB5EAE80007C378 /* SavedSearchesAbstractSource.m */,
 				D43F4F660FB5A97C0007C378 /* HGSDirectoryScannerSearchSource.h */,
 				D43F4F670FB5A97C0007C378 /* HGSDirectoryScannerSearchSource.m */,
 				D408899A0FB39D4B00B2D0DB /* CannedSearchesSource.m */,
@@ -173,6 +178,7 @@
 				8B0D217E0F796E1C00FD4A12 /* HGSBundle.m in Sources */,
 				D408899B0FB39D4B00B2D0DB /* CannedSearchesSource.m in Sources */,
 				D43F4F680FB5A97C0007C378 /* HGSDirectoryScannerSearchSource.m in Sources */,
+				D43F50E00FB5EAE80007C378 /* SavedSearchesAbstractSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

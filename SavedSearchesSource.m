@@ -6,20 +6,17 @@
 //
 
 #import <Vermilion/Vermilion.h>
-#import <Vermilion/HGSTokenizer.h>
-#import "HGSDirectoryScannerSearchSource.h"
+#import "SavedSearchesAbstractSource.h"
 
-#pragma mark Static Data
-
+#pragma mark HGSResult Type
 static NSString *const kSavedSearchesResultType
   = HGS_SUBTYPE(kHGSTypeFileSearch, @"savedSearch");
 
-static NSString *const kSavedSearchesAttributeQueryKey
-  = @"SavedSearchesAttributeQuery";
-
+#pragma mark Saved Search Path data
 static NSString *const kSavedSearchesPathComponent = @"Saved Searches";
 static NSString *const kSavedSearchesPathExtension = @"savedSearch";
 
+#pragma mark Saved Search Content keys
 static NSString *const kSavedSearchesFileQueryKey = @"RawQuery";
 static NSString *const kSavedSearchesFileScopesKey
   = @"RawQueryDict.SearchScopes";
@@ -50,7 +47,7 @@ static NSPredicate *_SavedSearchesQueryPredicate(NSDictionary *attrs)
 }
 
 #pragma mark -
-@interface SavedSearchesSource : HGSDirectoryScannerSearchSource
+@interface SavedSearchesSource : SavedSearchesAbstractSource
 @end
 
 #pragma mark -
@@ -60,8 +57,9 @@ static NSPredicate *_SavedSearchesQueryPredicate(NSDictionary *attrs)
 
 - (id) initWithConfiguration:(NSDictionary *)configuration
 {
-  NSString *path = _SavedSearchesPath();
-  self = [super initWithConfiguration:configuration rootPath:path];
+  self = [super initWithConfiguration:configuration
+                             rootPath:_SavedSearchesPath()
+                           resultType:kSavedSearchesResultType];
   return self;
 }
 
@@ -76,73 +74,6 @@ static NSPredicate *_SavedSearchesQueryPredicate(NSDictionary *attrs)
     [query setSearchScopes:_SavedSearchesQueryScopes(attrs)];
     [query setPredicate:_SavedSearchesQueryPredicate(attrs)];
     [query startQuery];
-  }
-}
-
-#pragma mark NSMetadataItem
-
-- (HGSResult *) resultForMetadataItem:(NSMetadataItem *)mdResult
-                                query:(HGSQuery *)query
-{
-  NSString *path = [mdResult valueForAttribute:(NSString *)kMDItemPath];
-  HGSMutableResult *result = [HGSMutableResult resultWithFilePath:path
-                                                           source:self
-                                                       attributes:nil];
-  NSString *tokenizedName = [HGSTokenizer tokenizeString:[result displayName]];
-  NSString *normalizedQuery = [query normalizedQueryString];
-  [result setRank:HGSScoreForAbbreviation(tokenizedName, normalizedQuery, NULL)];
-  return result;
-}
-
-#pragma mark HGSResult
-
-// Override -indexResult: to add our data to the HGSResult.
-// The added data consists of:
-// - a more specific result type than "file"
-// - an NSMetadataQuery instance executing the saved search
-// Creates a new HGSResult instance and merges it with the given one, because
-// HGSResult's -setValue:forKey: currently contains a failing assertion and
-// cannot be called.
-- (void)indexResult:(HGSResult *)hgsResult
-{
-  NSMetadataQuery *query = [[NSMetadataQuery new] autorelease];
-  NSDictionary *attrs
-    = [NSDictionary dictionaryWithObject:query
-                                  forKey:kSavedSearchesAttributeQueryKey];
-  NSURL *url = [hgsResult url];
-  HGSResult *result = [HGSResult resultWithURL:url
-                                          name:[hgsResult displayName]
-                                          type:kSavedSearchesResultType
-                                        source:self
-                                    attributes:attrs];
-  [super indexResult:[result mergeWith:hgsResult]];
-  [self startQuery:query forPath:[url path]];
-}
-
-#pragma mark HGSSearchSource
-
-- (void) performSearchOperation:(HGSSearchOperation*)operation
-{
-  HGSQuery *query = [operation query];
-  HGSResult *pivot = [query pivotObject];
-  if (pivot) {
-    NSMetadataQuery *mdQuery
-      = [pivot valueForKey:kSavedSearchesAttributeQueryKey];
-    if (mdQuery) {
-      NSMutableArray *results = [NSMutableArray array];
-      [mdQuery disableUpdates];
-      for (NSMetadataItem *mdResult in [mdQuery results]) {
-        HGSResult *result = [self resultForMetadataItem:mdResult query:query];
-        if ([result rank] > 0) {
-          [results addObject:result];
-        }
-      }
-      [mdQuery enableUpdates];
-      [operation setResults:results];
-    }
-  }
-  else {
-    [super performSearchOperation:operation];
   }
 }
 
