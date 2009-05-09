@@ -29,6 +29,10 @@
 			<string>HGSSourcesExtensionPoint</string>
 			<key>HGSExtensionUserVisibleName</key>
 			<string>Canned Searches</string>
+			<key>HGSSearchSourcePivotableTypes</key>
+			<array>
+				<string>file.search.cannedSearch</string>
+			</array>
 		</dict>
 		<dict>
 			<key>HGSExtensionClass</key>
@@ -39,6 +43,10 @@
 			<string>HGSSourcesExtensionPoint</string>
 			<key>HGSExtensionUserVisibleName</key>
 			<string>Saved Searches</string>
+			<key>HGSSearchSourcePivotableTypes</key>
+			<array>
+				<string>file.search.savedSearch</string>
+			</array>
 		</dict>
 	</array>
 </dict>
