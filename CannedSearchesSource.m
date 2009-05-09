@@ -6,25 +6,26 @@
 //
 
 #import <Vermilion/Vermilion.h>
+#import "HGSDirectoryScannerSearchSource.h"
 
 #pragma mark Static Data
 
 static NSString *const kCannedSearchesBundleIdentifier = @"com.apple.Finder";
-static NSString *const kCannedSearchesDirectoryName = @"CannedSearches";
-static NSString *const kCannedSearchesFileExtension = @"cannedSearch";
+static NSString *const kCannedSearchesPathComponent = @"CannedSearches";
+static NSString *const kCannedSearchesPathExtension = @"cannedSearch";
 
 #pragma mark -
 #pragma mark Helper Functions
 
-static NSBundle *_CannedSearchesBundle(void)
+static NSString *_CannedSearchesPath(void)
 {
-  return [NSBundle bundleWithPath:[[NSWorkspace sharedWorkspace] absolutePathForAppBundleWithIdentifier:kCannedSearchesBundleIdentifier]];
+  return [[[NSBundle bundleWithPath:[[NSWorkspace sharedWorkspace]
+                                     absolutePathForAppBundleWithIdentifier:kCannedSearchesBundleIdentifier]]
+           resourcePath] stringByAppendingPathComponent:kCannedSearchesPathComponent];
 }
 
 #pragma mark -
-@interface CannedSearchesSource : HGSMemorySearchSource
-- (void) loadCannedSearches;
-- (HGSResult *) resultForPath:(NSString *)path;
+@interface CannedSearchesSource : HGSDirectoryScannerSearchSource
 @end
 
 #pragma mark -
@@ -32,31 +33,9 @@ static NSBundle *_CannedSearchesBundle(void)
 
 - (id) initWithConfiguration:(NSDictionary *)configuration
 {
-  self = [super initWithConfiguration:configuration];
-  if (self == nil)
-    return nil;
-  [self loadResultsCache];
-  [self loadCannedSearches];
+  NSString *path = _CannedSearchesPath();
+  self = [super initWithConfiguration:configuration rootPath:path];
   return self;
-}
-
-- (void) loadCannedSearches
-{
-  NSBundle *bundle = _CannedSearchesBundle();
-  NSArray *paths = [bundle pathsForResourcesOfType:kCannedSearchesFileExtension
-                                       inDirectory:kCannedSearchesDirectoryName];
-  [self clearResultIndex];
-  for (NSString *path in paths) {
-    [self indexResult:[self resultForPath:path]];
-  }
-  [self saveResultsCache];
-}
-
-- (HGSResult *) resultForPath:(NSString *)path
-{
-  return [HGSResult resultWithFilePath:path
-                                source:self
-                            attributes:nil];
 }
 
 @end
