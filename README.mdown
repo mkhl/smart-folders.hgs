@@ -6,13 +6,12 @@ Folders][smart-folders], also known as Saved Searches.
 ## Usage
 
 * Hit you QSB keyboard shortcut.
-* Type the name of (or an abbreviation for) any of the Smart Folders you
-  have configured with Spotlight and the Finder.
-* Hit enter to open the Smart Folder.
-* Alternatively, *tab* into the Smart Folder to examine its contents.
+* Type the (partial) name of any Smart Folders you have configured with
+  Spotlight and the Finder.
+* Select the matching object from the result list.
+* Hit *enter* to open the selected item, or *tab* to examine its contents.
 
-
-## Installation Instructions
+## Installation
 
 After extracting the plugin, you will find a bundle called
 `SmartFolders.hgs`. Copy this bundle to `~/Library/Application
@@ -21,11 +20,11 @@ Support/Google/Quick Search Box/PlugIns`, then restart QSB.
 If you built the plugin from source (described below), you will find the
 `SmartFolders.hgs` bundle in your `build` directory.
 
-## Build Instructions
+## Building
 
-Building this plugin requires that you set up two source trees in Xcode.
-You will have to have the QuickSearchBox source tree downloaded to your
-machine. Instructions on getting the QSB source tree can be found here:
+Building this plugin requires that you set up two source trees in Xcode. You
+will have to have the QuickSearchBox source tree downloaded to your machine.
+Instructions on getting the QSB source tree can be found here:
 http://code.google.com/p/qsb-mac/source/checkout
 
 To set up the source trees in Xcode:
@@ -35,9 +34,9 @@ To set up the source trees in Xcode:
 3. Set the "Setting Name" of your new tree to `QSBBUILDROOT`
 4. Set the "Display Name" to `QSBBUILDROOT`
 5. Set the path to the debug build directory for QSB. For me the path looks 
-   like this `~/src/QuickSearchBox/QSB/build/Debug`. If you use a common
-   build directory or some other customized build location, you will have
-   to set it here.
+   like this `~/src/QuickSearchBox/QSB/build/Debug`. If you use a common build
+   directory or some other customized build location, you will have to set it
+   here.
 6. Click on the "Plus" button again
 7. Set the "Setting Name" of your new tree to `QSBSRCROOT`
 8. Set the "Display Name" to `QSBSRCROOT`
@@ -53,4 +52,4 @@ If you are developing plugins, please join our mailing list:
 http://groups.google.com/group/qsb-mac-dev
 
 [qsb]: http://code.google.com/p/qsb-mac/
-[smart-folders]: http://docs.info.apple.com/article.html?path=Mac/10.5/en/8923.html
+[smart-folders]: http://en.wikipedia.org/wiki/Smart_folder#Mac_OS_X
