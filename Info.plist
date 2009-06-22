@@ -29,10 +29,10 @@
 			<string>HGSSourcesExtensionPoint</string>
 			<key>HGSExtensionUserVisibleName</key>
 			<string>Smart Folders (System)</string>
+			<key>HGSSearchSourceCannotArchive</key>
+			<true/>
 			<key>HGSSearchSourcePivotableTypes</key>
-			<array>
-				<string>file.search.cannedSearch</string>
-			</array>
+			<string>file</string>
 		</dict>
 		<dict>
 			<key>HGSExtensionClass</key>
@@ -43,10 +43,10 @@
 			<string>HGSSourcesExtensionPoint</string>
 			<key>HGSExtensionUserVisibleName</key>
 			<string>Smart Folders (User)</string>
+			<key>HGSSearchSourceCannotArchive</key>
+			<true/>
 			<key>HGSSearchSourcePivotableTypes</key>
-			<array>
-				<string>file.search.savedSearch</string>
-			</array>
+			<string>file</string>
 		</dict>
 	</array>
 </dict>
