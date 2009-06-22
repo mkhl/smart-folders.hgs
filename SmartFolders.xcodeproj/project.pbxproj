@@ -28,6 +28,7 @@
 		8BAA94490F7A6EBC00DF4F12 /* LoadableBundle.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = LoadableBundle.xcconfig; path = "externals/google-toolbox-for-mac/XcodeConfig/Target/LoadableBundle.xcconfig"; sourceTree = QSBSRCROOT; };
 		8D5B49B6048680CD000E48DA /* SmartFolders.hgs */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartFolders.hgs; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D40372CB0FEFD55600F416A9 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		D43F51770FB61A0A0007C378 /* SmartFoldersSystemSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartFoldersSystemSource.m; sourceTree = "<group>"; };
 		D43F51780FB61A0A0007C378 /* HGSDirectoryScannerSearchSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGSDirectoryScannerSearchSource.h; sourceTree = "<group>"; };
 		D43F51790FB61A0A0007C378 /* HGSDirectoryScannerSearchSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGSDirectoryScannerSearchSource.m; sourceTree = "<group>"; };
@@ -112,6 +113,7 @@
 		32C88E010371C26100C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D40372CB0FEFD55600F416A9 /* Macros.h */,
 				8B0D217D0F796E1C00FD4A12 /* HGSBundle.m */,
 				7F8450F40F6B1F7B000CD5C1 /* QSBDebug.xcconfig */,
 				7F8450F50F6B1F7B000CD5C1 /* QSBRelease.xcconfig */,
