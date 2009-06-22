@@ -8,18 +8,21 @@
 #import <Vermilion/Vermilion.h>
 #import "HGSDirectoryScannerSearchSource.h"
 
-#define kHGSTypeFileSearch HGS_SUBTYPE(kHGSTypeFile, kHGSTypeSearch)
-
 @interface SmartFoldersAbstractSource : HGSDirectoryScannerSearchSource {
  @private
-  NSString *resultType_;
+  NSString *pathExtension_;
+  NSMutableDictionary *queryMap_;
 }
 
-- (id) initWithConfiguration:(NSDictionary *)configuration
-                    rootPath:(NSString *)path
-                  resultType:(NSString *)type;
+- (id)initWithConfiguration:(NSDictionary *)configuration
+                   rootPath:(NSString *)path
+              pathExtension:(NSString *)extension;
+
 @end
 
 @interface SmartFoldersAbstractSource (ProtectedMethods)
-- (void) startQuery:(NSMetadataQuery *)query forPath:(NSString *)path;
+
+- (NSString *)queryStringForPath:(NSString *)path;
+- (NSArray *)queryScopesForPath:(NSString *)path;
+
 @end
