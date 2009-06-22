@@ -34,83 +34,66 @@
 #import <GTM/GTMFileSystemKQueue.h>
 #import "HGSDirectoryScannerSearchSource.h"
 
+
 #pragma mark -
 @interface HGSDirectoryScannerSearchSource ()
+
 @property (retain) NSString *path;
 @property (retain) GTMFileSystemKQueue *kQueue;
+
 - (void)recacheContents;
+
 @end
 
 
 #pragma mark -
 @implementation HGSDirectoryScannerSearchSource
 
-#pragma mark -
 #pragma mark Accessors
-
 @synthesize path = path_;
 @synthesize kQueue = kQueue_;
 
-#pragma mark -
 #pragma mark Memory Management
-
-- (id) initWithConfiguration:(NSDictionary *)configuration
+- (id)initWithConfiguration:(NSDictionary *)configuration
 {
   return [self initWithConfiguration:configuration
                             rootPath:[configuration objectForKey:@"rootPath"]];
 }
 
-- (id) initWithConfiguration:(NSDictionary *)configuration
-                    rootPath:(NSString *)rootPath
+- (id)initWithConfiguration:(NSDictionary *)configuration
+                   rootPath:(NSString *)rootPath
 {
   self = [super initWithConfiguration:configuration];
-  if (self == nil)
+  if (!self)
     return nil;
-  self.path = rootPath;
-  if (![self loadResultsCache]) {
-    [self recacheContents];
-  } else {
-    [self performSelector:@selector(recacheContents)
-               withObject:nil
-               afterDelay:10.0];
-  }
-  self.kQueue = [[[GTMFileSystemKQueue alloc] initWithPath:self.path
-                                                 forEvents:kGTMFileSystemKQueueWriteEvent
-                                             acrossReplace:NO
-                                                    target:self
-                                                    action:@selector(directoryChanged:eventFlags:)]
-                 autorelease];
+  path_ = [rootPath copy];
   return self;
 }
 
-
-- (void) dealloc
+- (void)dealloc
 {
-  self.kQueue = nil;
-  self.path = nil;
+  [kQueue_ release];
+  kQueue_ = nil;
+  [path_ release];
+  path_ = nil;
   [super dealloc];
 }
 
-#pragma mark -
 #pragma mark FileSystem KQueue
-
-- (void) directoryChanged:(GTMFileSystemKQueue *)queue
-               eventFlags:(GTMFileSystemKQueueEvents)flags
+- (void)directoryChanged:(GTMFileSystemKQueue *)queue
+              eventFlags:(GTMFileSystemKQueueEvents)flags
 {
   [self recacheContents];
 }
 
-#pragma mark -
 #pragma mark Result Index
-
-- (void) recacheContents
+- (void)recacheContents
 {
   [self clearResultIndex];
   
   NSFileManager *fm = [NSFileManager defaultManager];
-  NSArray *contents = [fm directoryContentsAtPath:self.path];
   
-  for (NSString *subpath in contents) {
+  for (NSString *subpath in [fm directoryContentsAtPath:self.path]) {
     LSItemInfoRecord infoRec;
     subpath = [self.path stringByAppendingPathComponent:subpath];
     NSURL *subURL = [NSURL fileURLWithPath:subpath];
@@ -132,11 +115,40 @@
     if (infoRec.flags & kLSItemInfoIsInvisible) continue;
     if ([[subpath lastPathComponent] hasPrefix:@"."]) continue;
     
-    [self indexResult:[HGSResult resultWithFilePath:subpath
-                                             source:self
-                                         attributes:nil]];
+    [self indexResult:[self resultForFilePath:subpath]];
   }
   [self saveResultsCache];
+}
+
+@end
+
+#pragma mark -
+@implementation HGSDirectoryScannerSearchSource (ProtectedMethods)
+
+- (void)startIndexing
+{
+  if (![self loadResultsCache]) {
+    [self recacheContents];
+  } else {
+    [self performSelector:@selector(recacheContents)
+               withObject:nil
+               afterDelay:10.0];
+  }
+  GTMFileSystemKQueueEvents events = kGTMFileSystemKQueueWriteEvent;
+  SEL action = @selector(directoryChanged:eventFlags:);
+  self.kQueue = [[[GTMFileSystemKQueue alloc] initWithPath:self.path
+                                                 forEvents:events
+                                             acrossReplace:NO
+                                                    target:self
+                                                    action:action]
+                 autorelease];
+}
+
+- (HGSResult *)resultForFilePath:(NSString *)path
+{
+  return [HGSResult resultWithFilePath:path
+                                source:self
+                            attributes:nil];
 }
 
 @end

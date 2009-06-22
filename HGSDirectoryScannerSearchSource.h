@@ -42,4 +42,12 @@
 
 - (id) initWithConfiguration:(NSDictionary *)configuration
                     rootPath:(NSString *)rootPath;
+
+@end
+
+@interface HGSDirectoryScannerSearchSource (ProtectedMethods)
+
+- (void)startIndexing;
+- (HGSResult *)resultForFilePath:(NSString *)path;
+
 @end
