@@ -3,6 +3,8 @@
 A [Google Quick Search Box][qsb] plugin to enable access to [Smart
 Folders][smart-folders], also known as Saved Searches.
 
+**Download the plugin: <http://github.com/mkhl/smart-folders.hgs/downloads>**
+
 ## Usage
 
 * Hit you QSB keyboard shortcut.
