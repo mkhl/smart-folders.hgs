@@ -8,15 +8,13 @@
 #import <Vermilion/Vermilion.h>
 #import "SmartFoldersAbstractSource.h"
 
-#pragma mark HGSResult Type
-static NSString *const kSmartFoldersSystemResultType
-  = HGS_SUBTYPE(kHGSTypeFileSearch, @"cannedSearch");
-
 #pragma mark Canned Search Path data
-static NSString *const kSmartFoldersSystemBundleIdentifier = @"com.apple.Finder";
+static NSString *const kSmartFoldersSystemBundleIdentifier
+  = @"com.apple.Finder";
 static NSString *const kSmartFoldersSystemPathComponent = @"CannedSearches";
 static NSString *const kSmartFoldersSystemPathExtension = @"cannedSearch";
-static NSString *const kSmartFoldersSystemPathSearchFile = @"search.savedSearch";
+static NSString *const kSmartFoldersSystemPathSearchFile
+  = @"search.savedSearch";
 
 #pragma mark Canned Search Content keys
 static NSString *const kSmartFoldersSystemFileQueryKey = @"RawQuery";
@@ -25,14 +23,14 @@ static NSString *const kSmartFoldersSystemFileScopesKey
 
 #pragma mark -
 #pragma mark Helper Functions
-
 static NSString *_SmartFoldersSystemPath(void)
 {
   NSWorkspace *ws = [NSWorkspace sharedWorkspace];
-  NSString *path
-    = [ws absolutePathForAppBundleWithIdentifier:kSmartFoldersSystemBundleIdentifier];
+  NSString *path = [ws absolutePathForAppBundleWithIdentifier:
+                    kSmartFoldersSystemBundleIdentifier];
   path = [[NSBundle bundleWithPath:path] resourcePath];
-  return [path stringByAppendingPathComponent:kSmartFoldersSystemPathComponent];
+  return [path stringByAppendingPathComponent:
+          kSmartFoldersSystemPathComponent];
 }
 
 static NSArray *_SmartFoldersSystemQueryScopes(NSDictionary *attrs)
@@ -40,12 +38,9 @@ static NSArray *_SmartFoldersSystemQueryScopes(NSDictionary *attrs)
   return [attrs valueForKeyPath:kSmartFoldersSystemFileScopesKey];
 }
 
-static NSPredicate *_SmartFoldersSystemQueryPredicate(NSDictionary *attrs)
+static NSString *_SmartFoldersSystemQueryString(NSDictionary *attrs)
 {
-  NSString *format = [attrs valueForKeyPath:kSmartFoldersSystemFileQueryKey];
-  format = [format stringByReplacingOccurrencesOfString:@" && (true)"
-                                             withString:@""];
-  return [NSPredicate predicateWithFormat:format];
+  return [attrs valueForKeyPath:kSmartFoldersSystemFileQueryKey];
 }
 
 #pragma mark -
@@ -56,27 +51,37 @@ static NSPredicate *_SmartFoldersSystemQueryPredicate(NSDictionary *attrs)
 @implementation SmartFoldersSystemSource
 
 #pragma mark Memory Management
-- (id) initWithConfiguration:(NSDictionary *)configuration
+- (id)initWithConfiguration:(NSDictionary *)configuration
 {
   self = [super initWithConfiguration:configuration
                              rootPath:_SmartFoldersSystemPath()
-                           resultType:kSmartFoldersSystemResultType];
+                        pathExtension:kSmartFoldersSystemPathExtension];
   return self;
 }
 
-#pragma mark NSMetadataQuery
-
-- (void) startQuery:(NSMetadataQuery *)query forPath:(NSString *)path
+#pragma mark SmartFoldersAbstractSource
+- (NSString *)queryStringForPath:(NSString *)path
 {
-  path = [path stringByAppendingPathComponent:kSmartFoldersSystemPathSearchFile];
+  path = [path stringByAppendingPathComponent:
+          kSmartFoldersSystemPathSearchFile];
   NSDictionary *attrs = [NSDictionary dictionaryWithContentsOfFile:path];
   if (attrs == nil) {
     HGSLogDebug(@"%@: Failed to read dictionary from file: %@", self, path);
-  } else {
-    [query setSearchScopes:_SmartFoldersSystemQueryScopes(attrs)];
-    [query setPredicate:_SmartFoldersSystemQueryPredicate(attrs)];
-    [query startQuery];
+    return nil;
   }
+  return _SmartFoldersSystemQueryString(attrs);
+}
+
+- (NSArray *)queryScopesForPath:(NSString *)path
+{
+  path = [path stringByAppendingPathComponent:
+          kSmartFoldersSystemPathSearchFile];
+  NSDictionary *attrs = [NSDictionary dictionaryWithContentsOfFile:path];
+  if (attrs == nil) {
+    HGSLogDebug(@"%@: Failed to read dictionary from file: %@", self, path);
+    return nil;
+  }
+  return _SmartFoldersSystemQueryScopes(attrs);
 }
 
 @end
